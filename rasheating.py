@@ -6,7 +6,7 @@ from datetime import datetime as t
 #Temp MIN
 tset = 27
 tmarg = 2
-
+TEMP_SCALE="C" # Show temperature in C or F
 #status
 state = None
 
@@ -34,9 +34,10 @@ def read_temp():
         equals_pos = lines[1].find('t=')
         if equals_pos != -1:
                 temp_string = lines[1][equals_pos+2:]
-                temp_c = float(temp_string) / 1000.0
-               # temp_f = temp_c * 9.000 / 5.000 + 32.000
-                return temp_c
+                temp = float(temp_string) / 1000.0
+		if TEMP_SCALE==C
+                	temp = temp * 9.000 / 5.000 + 32.000
+                return temp
 
 if not os.geteuid() == 0:
         sys.exit('Script must run as root')

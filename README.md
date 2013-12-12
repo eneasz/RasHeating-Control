@@ -29,7 +29,7 @@ This will load the w1_gpio and w1_therm modules temporarily for your current ses
 sudo sh -c "echo 'w1_gpio\nw1_therm\n' >> /etc/modules"
 
 
-Check your sensor is detected by the system.
+Check if your sensor is detected by the system.
 =============================================
 
 pi@raspberrypi ~ $ cat /sys/bus/w1/devices/28-00000449e4f6/w1_slave

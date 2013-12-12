@@ -4,13 +4,8 @@ import os, time, sys, glob
 from datetime import datetime as t
 
 #Temp MIN
-tmarg = "2"
-tmarg = int(tmarg)
-
-
-#Temp set
-tset = "27"
-tset = int(tset)
+tset = 27
+tmarg = 2
 
 #status
 state = None
@@ -82,7 +77,6 @@ while True:
 		print color.FAIL + ("Temperature value is not a number") + color.ENDC
 		ogrzewanie("OFF")
 		break
-	tmp = int(tmp)
 
 
 #Making decision weather to switch on/off

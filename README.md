@@ -17,6 +17,7 @@ Sensor I have got 3 wires: RED - Vdd, BLACK - GND, WHITE - Data
 - Conect Data on the 18B20 to pin 7 (GPIO4) on the RPi.
 - Connect  Vdd on the 18B20 to pin 1 (3V3) on the RPi.
 - Put a 4.7K resistor between Data and Vdd pins on RPi.
+
 It is possible to use multiple sensors , any aditional ona has to be in parallel with first
 
 Load the Kerne Modules
@@ -33,6 +34,7 @@ Check if your sensor is detected by the system.
 =============================================
 
 pi@raspberrypi ~ $ cat /sys/bus/w1/devices/28-*/w1_slave
+
 0b 00 4b 46 7f ff 05 10 95 : crc=95 YES
 0b 00 4b 46 7f ff 05 10 95 t=22583
 

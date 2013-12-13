@@ -1,8 +1,7 @@
 #!/usr/bin/python
 
 #Importing stuff including scheduler-custom which is a file where you define your own scheduler
-import custom
-import datetime, time
+import custom, datetime, time
 
 #Define how to find out hour, minute and day of the week
 hour = datetime.datetime.now().hour

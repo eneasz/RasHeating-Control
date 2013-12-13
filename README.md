@@ -22,13 +22,13 @@ It is possible to use multiple sensors , any aditional ona has to be in parallel
 
 Load the Kerne Modules
 ======================
-
+```
 sudo modprobe w1_gpio && sudo modprobe w1_therm
-
+```
 This will load the w1_gpio and w1_therm modules temporarily for your current session. If you reboot your Raspberry Pi, you will have to reload them. In order to load them automatically, you can add 2 lines to /etc/modules:
-
+```
 sudo sh -c "echo 'w1_gpio\nw1_therm\n' >> /etc/modules"
-
+```
 
 Check if your sensor is detected by the system.
 =============================================

@@ -33,9 +33,9 @@ sudo sh -c "echo 'w1_gpio\nw1_therm\n' >> /etc/modules"
 Check if your sensor is detected by the system.
 =============================================
 
-
+```
 eneasz@zebrapi ~/RasHeating-Control $ cat /sys/bus/w1/devices/28-*/w1_slave
 68 01 4b 46 7f ff 08 10 05 : crc=05 YES
 68 01 4b 46 7f ff 08 10 05 t=22500
-
+```
 t=22500/1000 = 22.5 <== This is Your temperature in C

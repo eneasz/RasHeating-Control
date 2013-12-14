@@ -43,7 +43,6 @@ while True:
 #Executing scheduled code when time arrived.
  if datetime.datetime.now() < END and SKIP==True:
 			print("<= This is where your code gets executed at scheduler time =>")
-			time.sleep(2)
 
 #When time run out, finishing task
  if datetime.datetime.now() > END and SKIP==True:

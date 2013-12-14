@@ -20,16 +20,15 @@ SKIP = False
 while True:
 #Reloading scheduler
  reload(custom)
- import custom
 
 #Setting up current time
  HOUR = datetime.datetime.now().hour
  MINUTE = datetime.datetime.now().minute
 
 #Checking for each day of the week in search of Today
- for s in DAYOFWEEK:
-     if s==TODAY and (SKIP==False or SKIP==None):
-	for instance in custom.week[s]:
+ for SCHEDULER in DAYOFWEEK:
+     if SCHEDULER==TODAY and (SKIP==False or SKIP==None):
+	for instance in custom.week[SCHEDULER]:
 	  if (HOUR==instance['hour'] and MINUTE==instance['minute'] and SKIP==False):
             start = datetime.datetime.now()
             END = start + datetime.timedelta(minutes=instance['duration'])

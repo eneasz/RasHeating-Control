@@ -3,7 +3,8 @@
 import os, time, sys, glob
 from datetime import datetime as t
 
-#Checking if we are already root and if not reloading with sudo
+#Checking if we already are root and if not reloading with sudo.
+#Thanks to https://gist.github.com/davejamesmiller/1965559
 if os.geteuid() != 0:
 	os.execvp("sudo", ["sudo"] + sys.argv)
 

@@ -14,12 +14,12 @@ if ( not os.path.isfile(_scheduler)):
 else:
     import custom
 
-#Defined dayofweek, today's date and resetting  end and skip counters
+#Defined dayofweek, today's date and resetting  end and running counters
 DAYOFWEEK = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
 OLDDATE = datetime.date(datetime.datetime.today().year,datetime.datetime.today().month,datetime.datetime.today().day) # year, month, day
 TODAY = DAYOFWEEK[datetime.date.weekday(OLDDATE)]
 END = datetime.datetime.now()
-SKIP = False
+RUNNING = False
 
 while True:
 #Reloading scheduler
@@ -31,21 +31,21 @@ while True:
 
 #Checking for each day of the week in search of Today
  for SCHEDULER in DAYOFWEEK:
-     if SCHEDULER==TODAY and (SKIP==False or SKIP==None):
+     if SCHEDULER==TODAY and (RUNNING==False or RUNNING==None):
 	for instance in custom.week[SCHEDULER]:
-	  if (HOUR==instance['hour'] and MINUTE==instance['minute'] and SKIP==False):
+	  if (HOUR==instance['hour'] and MINUTE==instance['minute'] and RUNNING==False):
             start = datetime.datetime.now()
             END = start + datetime.timedelta(minutes=instance['duration'])
 	    print("Enabling scheduler : " + str(instance['hour']) + ":" + str(instance['minute']) + ". This will finish at " + str(END))
-	    SKIP=True
+	    RUNNING=True
 	    break
 
 #Executing scheduled code when time arrived.
- if datetime.datetime.now() < END and SKIP==True:
+ if datetime.datetime.now() < END and RUNNING==True:
 			print("<= This is where your code gets executed at scheduler time =>")
 
 #When time run out, finishing task
- if datetime.datetime.now() > END and SKIP==True:
-	SKIP=False
+ if datetime.datetime.now() > END and RUNNING==True:
+	RUNNING=False
 	print("Scheduled task finished")
  time.sleep(5)

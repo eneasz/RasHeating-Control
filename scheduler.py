@@ -5,7 +5,7 @@
 #================================================================================================
 
 #Importing stuff including scheduler-custom which is a file where you define your own scheduler
-import sys, os, datetime, time
+import sys, os, datetime, time, rhf
 
 _scheduler="custom.py"
 if ( not os.path.isfile(_scheduler)):
@@ -20,12 +20,14 @@ OLDDATE = datetime.date(datetime.datetime.today().year,datetime.datetime.today()
 TODAY = DAYOFWEEK[datetime.date.weekday(OLDDATE)]
 END = datetime.datetime.now()
 RUNNING = False
+global STATE
+
 
 while True:
 #Reloading scheduler
  reload(custom)
 
-#Setting up current time
+##Setting up current time
  HOUR = datetime.datetime.now().hour
  MINUTE = datetime.datetime.now().minute
 
@@ -38,14 +40,18 @@ while True:
             END = start + datetime.timedelta(minutes=instance['duration'])
 	    print("Enabling scheduler : " + str(instance['hour']) + ":" + str(instance['minute']) + ". This will finish at " + str(END))
 	    RUNNING=True
+	    STATE=False
 	    break
 
 #Executing scheduled code when time arrived.
  if datetime.datetime.now() < END and RUNNING==True:
-			print("<= This is where your code gets executed at scheduler time =>")
+#			print("<= This is where your code gets executed at scheduler time =>")
+			rhf.run_heating()
 
 #When time run out, finishing task
  if datetime.datetime.now() > END and RUNNING==True:
 	RUNNING=False
+	STATE=False
+	rhf.ogrzewanie("False")
 	print("Scheduled task finished")
  time.sleep(5)

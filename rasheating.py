@@ -3,6 +3,10 @@
 import os, time, sys, glob
 from datetime import datetime as t
 
+#Checking if we are already root and if not reloading with sudo
+if os.geteuid() != 0:
+	os.execvp("sudo", ["sudo"] + sys.argv)
+
 #Temp MIN
 TSET = 27
 TMARG = 2

@@ -1,5 +1,9 @@
 #!/usr/bin/python
 
+#================================================================================================
+#This library is is a simple script that is using an external  scheduler plan in from a dictionary in custom.py where you can define your own scheduler for each day. Library checks what day is today and if there is a scheduler for this day it will check if there is anything set up for curent time and upon match it will use a duration to determinate when task should end and run it for set duration.
+#================================================================================================
+
 #Importing stuff including scheduler-custom which is a file where you define your own scheduler
 import sys, os, datetime, time
 

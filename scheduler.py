@@ -22,9 +22,9 @@ while True:
      if s==today and (skip==False or skip==None):
 	for instance in custom.week[s]:
 	  if (hour==instance['hour'] and minute==instance['minute'] and skip==False):
+            start = datetime.datetime.now()
+            end = start + datetime.timedelta(minutes=instance['duration'])
 	    print("Enabling scheduler : " + str(instance['hour']) + ":" + str(instance['minute']) + ". This will finish at " + str(end))
-	    start = datetime.datetime.now()
-	    end = start + datetime.timedelta(minutes=instance['duration'])
 	    skip=True
 	    break
 

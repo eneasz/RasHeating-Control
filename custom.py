@@ -33,7 +33,9 @@ week={
                  ],
 
 	'Saturday':[{'hour': 11, 'minute': 44, 'duration': 1},
-		    {'hour': 12, 'minute': 00, 'duration': 2},
+		    {'hour': 12, 'minute': 3, 'duration': 2},
+                    {'hour': 12, 'minute': 8, 'duration': 2},
+                    {'hour': 12, 'minute': 12, 'duration': 2},
                    ],
 
 	'Sunday':[{'hour': 15, 'minute': 44, 'duration': 5},

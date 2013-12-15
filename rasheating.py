@@ -13,12 +13,22 @@ if os.geteuid() != 0:
 GPIO.setmode(GPIO.BOARD) ## Use board pin numbering
 GPIO.setup(11, GPIO.OUT) ## Setup GPIO Pin 11 to OUT
 
-#Temp MIN
-TSET = 17.5
+TSET = 19.5 #Tempe max 
 TMARG = 1 # TSET - TMARG = Minimal temperature below which heating will be enabled
 TEMP_SCALE="C" # Show temperature in C or F
-#status
-STATE = None
+STATE = None # Reseting status
+LED=True # Set to True or False to enable or disable LED
+
+if LED==True:
+	SPEED = 0.2 #Speed how quickly LED is blinking
+	NUMTIMES = 4 #How many time blink in each sequence
+
+	def Blink(speed):
+		for i in range(0,NUMTIMES):## Run loop NUMTIMES
+       	         GPIO.output(11,True)## Switch on pin 11
+       	         time.sleep(speed)## Wait
+       	         GPIO.output(11,False)## Switch off pin 11
+       	         time.sleep(speed)## Wait
 
 #Set sensor
 os.system('modprobe w1-gpio')
@@ -94,22 +104,22 @@ while True:
 	if tmp >= TSET and (STATE==None or STATE==True):
 		STATE = False
 		print color.OKGREEN + ("Temperature " + str(tmp) + str(TEMP_SCALE) + " reached MAX, switching OFF heating") + color.ENDC
-		GPIO.output(11,STATE) ## Turn on GPIO pin 11
+		if LED==True: GPIO.output(11,False) ## Turn on GPIO pin 11
 	elif tmp >= TSET and (STATE==False):
 		print color.OKGREEN + ("Temperature " + str(tmp) + str(TEMP_SCALE) + " we don't need to runn the heating") + color.ENDC
-		GPIO.output(11,STATE) ## Turn on GPIO pin 11
+		if LED==True: GPIO.output(11,False) ## Turn on GPIO pin 11
 	elif tmp<TSET and (STATE==True):
 		print color.BLUE + ("Its " + str(tmp) + str(TEMP_SCALE) + " heating is running now") + color.ENDC
-		GPIO.output(11,STATE) ## Turn off GPIO pin 11
+		if LED==True: Blink(float(SPEED))
 	elif tmp < TSET - TMARG and (STATE==None or not STATE or STATE==False):
 		STATE = True
 		print color.BLUE + ("Its " + str(tmp) + str(TEMP_SCALE) + " Switching ON heating") + color.ENDC
-		GPIO.output(11,STATE) ## Turn off GPIO pin 11
+		if LED==True: Blink(float(SPEED))
 	elif TSET - TMARG <= tmp and (STATE==False or not STATE):
 		print color.WARNING + ("Temperature " + str(tmp) + str(TEMP_SCALE) + " within set range, no change required") + color.ENDC
-		GPIO.output(11,STATE) ## Turn on GPIO pin 11
+		if LED==True: GPIO.output(11,False) ## Turn off GPIO pin 11
 
 #Executing function ogrzewanie
 	ogrzewanie(STATE);
 	print(tmp)
-	time.sleep(2)
+	time.sleep(1)

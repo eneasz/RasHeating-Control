@@ -17,6 +17,9 @@ Sensor I have got 3 wires: RED - Vdd, BLACK - GND, WHITE - Data
 - Conect Data on the 18B20 to pin 7 (GPIO4) on the RPi.
 - Connect  Vdd on the 18B20 to pin 1 (3V3) on the RPi.
 - Put a 4.7K resistor between Data and Vdd pins on RPi.
+- Connect ANODE of LED to pin 11 (PGIO17) on RPi.
+- Connect KATODE of LED with the 330R resistor
+- Second leg of 330R conect with (GND)
 
 It is possible to use multiple sensors , any aditional ona has to be in parallel with first
 

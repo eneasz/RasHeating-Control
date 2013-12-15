@@ -2,15 +2,20 @@
 #Import stuff
 import os, time, sys, glob
 from datetime import datetime as t
+import RPi.GPIO as GPIO ## Import GPIO library
 
 #Checking if we already are root and if not reloading with sudo.
 #Thanks to https://gist.github.com/davejamesmiller/1965559
 if os.geteuid() != 0:
 	os.execvp("sudo", ["sudo"] + sys.argv)
 
+#Setting GPIO controling LED - ON  when heating is running, OFF when it's not running
+GPIO.setmode(GPIO.BOARD) ## Use board pin numbering
+GPIO.setup(11, GPIO.OUT) ## Setup GPIO Pin 11 to OUT
+
 #Temp MIN
-TSET = 27
-TMARG = 2
+TSET = 17.5
+TMARG = 1 # TSET - TMARG = Minimal temperature below which heating will be enabled
 TEMP_SCALE="C" # Show temperature in C or F
 #status
 STATE = None
@@ -89,15 +94,20 @@ while True:
 	if tmp >= TSET and (STATE==None or STATE==True):
 		STATE = False
 		print color.OKGREEN + ("Temperature " + str(tmp) + str(TEMP_SCALE) + " reached MAX, switching OFF heating") + color.ENDC
+		GPIO.output(11,STATE) ## Turn on GPIO pin 11
 	elif tmp >= TSET and (STATE==False):
 		print color.OKGREEN + ("Temperature " + str(tmp) + str(TEMP_SCALE) + " we don't need to runn the heating") + color.ENDC
+		GPIO.output(11,STATE) ## Turn on GPIO pin 11
 	elif tmp<TSET and (STATE==True):
 		print color.BLUE + ("Its " + str(tmp) + str(TEMP_SCALE) + " heating is running now") + color.ENDC
+		GPIO.output(11,STATE) ## Turn off GPIO pin 11
 	elif tmp < TSET - TMARG and (STATE==None or not STATE or STATE==False):
 		STATE = True
 		print color.BLUE + ("Its " + str(tmp) + str(TEMP_SCALE) + " Switching ON heating") + color.ENDC
+		GPIO.output(11,STATE) ## Turn off GPIO pin 11
 	elif TSET - TMARG <= tmp and (STATE==False or not STATE):
 		print color.WARNING + ("Temperature " + str(tmp) + str(TEMP_SCALE) + " within set range, no change required") + color.ENDC
+		GPIO.output(11,STATE) ## Turn on GPIO pin 11
 
 #Executing function ogrzewanie
 	ogrzewanie(STATE);

@@ -22,7 +22,6 @@ def run_heating(STATE) :
    TMARG = 5
    TEMP_SCALE="C" # Show temperature in C or F
    #status
-   STATE=False
 
    #Set sensor
    os.system('modprobe w1-gpio')
@@ -66,8 +65,6 @@ def run_heating(STATE) :
        ENDC = '\033[0m'
    
   
-   #Clear screen
-#   os.system('clear')
 
    HOUR = datetime.datetime.now().hour
    MINUTE = datetime.datetime.now().minute
@@ -75,11 +72,6 @@ def run_heating(STATE) :
    #Display parameters
    print color.HEADER + ( "Settings:\n" + "Time : " + str(HOUR) + ":" + str(MINUTE) + "\n" + "Temperature min: " + str(TSET - TMARG) + str(TEMP_SCALE) + "\n" + "Temperature max: " + str(TSET) + str(TEMP_SCALE) + "\n") + color.ENDC
    
-   #Define action
-#   def ogrzewanie(STATE):
-#   		if STATE!=False and STATE!=True :
-#   			STATE=False
-#		print STATE
    
    #Reading curent temperature and making sure it's a number
    tmp = read_temp()
@@ -92,23 +84,22 @@ def run_heating(STATE) :
    
    #Making decision weather to switch on/off
 #tmp >=tset - switching off
-   print("Status przed podjeciem decyzji: " + str(STATE))
    if tmp >= TSET and (STATE==None or STATE==True):
    	STATE = False
-   	print color.OKGREEN + ("Temperature " + str(tmp) + str(TEMP_SCALE) + " reached MAX, switching OFF heating") + color.ENDC
+   	print color.OKGREEN + ("Temperature " + str(tmp) + " " + str(TEMP_SCALE) + " :Reached MAX, switching OFF heating") + color.ENDC
 #tmp >= tset just being off
    elif tmp >= TSET and (STATE==False):
-   	print color.OKGREEN + ("Temperature " + str(tmp) + str(TEMP_SCALE) + " we don't need to runn the heating") + color.ENDC
+   	print color.OKGREEN + ("Temperature " + str(tmp) + " " + str(TEMP_SCALE) + " :We don't need to runn the heating") + color.ENDC
 #tmp<tset status is true and heating is running
    elif tmp<TSET and (STATE==True):
-   	print color.BLUE + ("Its " + str(tmp) + str(TEMP_SCALE) + " heating is running now") + color.ENDC
+   	print color.BLUE + ("It\'s " + str(tmp) + " " + str(TEMP_SCALE) + " :Heating is running now") + color.ENDC
 #tmp<tset-tmarg switching on
    elif tmp < TSET - TMARG and (STATE==None or not STATE or STATE==False):
    	STATE = True
-   	print color.BLUE + ("Its " + str(tmp) + str(TEMP_SCALE) + " Switching ON heating") + color.ENDC
+   	print color.BLUE + ("Iti\'s " + str(tmp) + " " + str(TEMP_SCALE) + " :Switching ON heating") + color.ENDC
 #tset-tmarg<=tmp 
    elif tmp >=TSET-TMARG  and STATE==False:
-   	print color.WARNING + ("Temperature " + str(tmp) + str(TEMP_SCALE) + " within set range, no change required") + color.ENDC
+   	print color.WARNING + ("Temperature " + str(tmp) + " " + str(TEMP_SCALE) + " :Within set range, no change required") + color.ENDC
    
    #Executing function ogrzewanie
    ogrzewanie(STATE);

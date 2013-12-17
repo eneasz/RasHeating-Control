@@ -7,7 +7,7 @@ def ogrzewanie(STATE):
         if STATE!=False and STATE!=True :
               STATE=False
               print STATE
-def run_heating() :
+def run_heating(STATE) :
 #Import stuff
    import os, time, sys, glob
    from datetime import datetime as t
@@ -113,4 +113,4 @@ def run_heating() :
    #Executing function ogrzewanie
    ogrzewanie(STATE);
    time.sleep(2)
-   return
+   return STATE

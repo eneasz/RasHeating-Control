@@ -20,7 +20,8 @@ OLDDATE = datetime.date(datetime.datetime.today().year,datetime.datetime.today()
 TODAY = DAYOFWEEK[datetime.date.weekday(OLDDATE)]
 END = datetime.datetime.now()
 RUNNING = False
-global STATE
+STATE = False
+#global STATE
 
 
 while True:
@@ -46,7 +47,7 @@ while True:
 #Executing scheduled code when time arrived.
  if datetime.datetime.now() < END and RUNNING==True:
 #			print("<= This is where your code gets executed at scheduler time =>")
-			rhf.run_heating()
+			STATE = rhf.run_heating(STATE)
 
 #When time run out, finishing task
  if datetime.datetime.now() > END and RUNNING==True:

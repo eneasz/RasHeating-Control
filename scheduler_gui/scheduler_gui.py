@@ -97,8 +97,10 @@ try:
                 column = (pos[0] - sidemargin) // (width + margin)
                 row = (pos[1] - topmargin) // (height + margin)
                 # Change that location's value in the grid:
-                print("User clicked " + str(grid[row][column]))
-                grid[row][column] = 0 if grid[row][column] == 1 else 1
+                try:
+                    grid[row][column] = 0 if grid[row][column] == 1 else 1
+                except IndexError:
+                    continue
 
         # Now we've evaluate our current situation, lets draw the screen:
         # Fill it black first:

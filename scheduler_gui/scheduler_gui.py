@@ -92,6 +92,9 @@ try:
                 # Change x/y to screen co-ords in comparison to our grid.
                 #column = (pos[0] // ((sidemargin - margin) + width + margin))
                 #row = (pos[1] // ((topmargin - margin) + height + margin))
+		## If the mouse is currently in one of our initial margins; do nothing!
+                if pos[0] < sidemargin or pos[1] < topmargin:
+                    continue
                 ### We remove our initial gap from the mouse position first,
                 ### So that we're dealing entirely with the grid
                 column = (pos[0] - sidemargin) // (width + margin)

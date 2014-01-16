@@ -4,43 +4,42 @@
 
 week={
 
-       'Monday':[{'hour': 10, 'minute': 20, 'duration': 0},
+       'Monday':[{'hour': 10, 'minute': 19, 'duration': 460},
                  {'hour': 12, 'minute': 20, 'duration': 2},
-                 {'hour': 15, 'minute': 20, 'duration': 2},
+                 {'hour': 18, 'minute': 0, 'duration': 362},
                  {'hour': 20, 'minute': 30, 'duration': 20},
                 ],
 
-       'Tuesday':[{'hour': 10, 'minute': 20, 'duration': 0},
+       'Tuesday':[{'hour': 8, 'minute': 6, 'duration': 360},
                   {'hour': 12, 'minute': 20, 'duration': 2},
-                  {'hour': 15, 'minute': 20, 'duration': 2},
-                  {'hour': 20, 'minute': 30, 'duration': 20},
+                  {'hour': 15, 'minute': 6, 'duration': 2},
+                  {'hour': 21, 'minute': 38, 'duration': 360},
                  ],
 
-       'Wednesday':[{'hour': 10, 'minute': 20, 'duration': 0},
-                    {'hour': 12, 'minute': 20, 'duration': 2},
-                    {'hour': 15, 'minute': 20, 'duration': 2},
-                    {'hour': 20, 'minute': 30, 'duration': 20},
+       'Wednesday':[{'hour': 10, 'minute': 56, 'duration': 360},
+                    {'hour': 15, 'minute': 30, 'duration': 360},
                    ],
 
-       'Thursday':[{'hour': 10, 'minute': 20, 'duration': 0},
+       'Thursday':[{'hour': 8, 'minute': 30, 'duration': 360},
                    {'hour': 12, 'minute': 20, 'duration': 2},
                    {'hour': 15, 'minute': 20, 'duration': 2},
-                   {'hour': 20, 'minute': 30, 'duration': 20},
+                   {'hour': 22, 'minute': 18, 'duration': 320},
+                   {'hour': 22, 'minute': 46, 'duration': 1},
                   ],
 
-	'Friday':[{'hour': 10, 'minute': 20, 'duration': 0},
-                  {'hour': 12, 'minute': 20, 'duration': 2},
-                  {'hour': 17, 'minute': 34, 'duration': 1},
+	'Friday':[{'hour': 6, 'minute': 20, 'duration': 360},
+                  {'hour': 9, 'minute': 10, 'duration': 362},
+                  {'hour': 16, 'minute': 35, 'duration': 360},
 		  {'hour': 23, 'minute': 55, 'duration': 1},
                  ],
 
 	'Saturday':[{'hour': 11, 'minute': 44, 'duration': 1},
 		    {'hour': 12, 'minute': 3, 'duration': 2},
                     {'hour': 12, 'minute': 8, 'duration': 2},
-                    {'hour': 13, 'minute': 00, 'duration': 1},
+                    {'hour': 15, 'minute': 53, 'duration': 461},
                    ],
 
-	'Sunday':[{'hour': 15, 'minute': 44, 'duration': 5},
-                  {'hour': 20, 'minute': 30, 'duration': 20},
+	'Sunday':[{'hour': 7, 'minute': 58, 'duration': 550},
+                  {'hour': 20, 'minute': 30, 'duration': 520},
                  ]
 }

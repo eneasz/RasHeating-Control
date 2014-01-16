@@ -35,7 +35,7 @@ while True:
 #Checking for each day of the week in search of Today
  for SCHEDULER in DAYOFWEEK:
      if SCHEDULER==TODAY and (RUNNING==False or RUNNING==None):
-	for instance in custom.week[SCHEDULER]:
+	for instance in custom.week[TODAY]:
 	  if (HOUR==instance['hour'] and MINUTE==instance['minute'] and RUNNING==False):
             start = datetime.datetime.now()
             END = start + datetime.timedelta(minutes=instance['duration'])
@@ -53,6 +53,6 @@ while True:
  if datetime.datetime.now() > END and RUNNING==True:
 	RUNNING=False
 	STATE=False
-	rhf.ogrzewanie("False")
+	rhf.heating_status("False")
 	print("Scheduled task finished")
- time.sleep(5)
+ time.sleep(3)

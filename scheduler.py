@@ -33,9 +33,9 @@ while True:
  MINUTE = datetime.datetime.now().minute
 
 #Checking for each day of the week in search of Today
- for SCHEDULER in DAYOFWEEK:
-     if SCHEDULER==TODAY and (RUNNING==False or RUNNING==None):
-	for instance in custom.week[TODAY]:
+# for SCHEDULER in DAYOFWEEK:
+#     if SCHEDULER==TODAY and (RUNNING==False or RUNNING==None):
+ for instance in custom.week[TODAY]:
 	  if (HOUR==instance['hour'] and MINUTE==instance['minute'] and RUNNING==False):
             start = datetime.datetime.now()
             END = start + datetime.timedelta(minutes=instance['duration'])

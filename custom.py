@@ -24,7 +24,7 @@ week={
                    {'hour': 12, 'minute': 20, 'duration': 2},
                    {'hour': 15, 'minute': 20, 'duration': 2},
                    {'hour': 22, 'minute': 18, 'duration': 320},
-                   {'hour': 22, 'minute': 46, 'duration': 1},
+                   {'hour': 23, 'minute': 14, 'duration': 1},
                   ],
 
 	'Friday':[{'hour': 6, 'minute': 20, 'duration': 360},

@@ -28,15 +28,15 @@ while True:
  curently = timedelta(hours=datetime.now().hour, minutes=datetime.now().minute)
 
 #Checking each event of Today's 
- for event in custom.week[day_of_week[date.weekday(date.today())]]:
-     if RUNNING==False:
-	start = timedelta(hours=event['hour'], minutes=event['minute'])
-	finish = start + timedelta(minutes=event['duration'])
+ if RUNNING==False:
+   for event in custom.week[day_of_week[date.weekday(date.today())]]:
+     start = timedelta(hours=event['hour'], minutes=event['minute'])
+     finish = start + timedelta(minutes=event['duration'])
 
-	if (start < curently < finish):
-	    print("Running scheduler : " + str(event['hour']) + ":" + str(event['minute']) + ".00" + ". This will finish at " + str(finish))
-	    RUNNING=True
-	    break
+     if (start < curently < finish):
+       print("Running scheduler : " + str(event['hour']) + ":" + str(event['minute']) + ".00" + ". This will finish at " + str(finish))
+       RUNNING=True
+       break
 
 #When time run out, finishing task
  if RUNNING==True:

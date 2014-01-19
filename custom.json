@@ -1,0 +1,32 @@
+{
+"Monday": [{"hour": 6, "minute": 10, "duration": 100}, 
+           {"hour": 10, "minute": 20, "duration": 12},
+           {"hour": 14, "minute": 0, "duration": 180},
+           {"hour": 20, "minute": 30, "duration": 90}], 
+
+"Tuesday": [{"hour": 6, "minute": 6, "duration": 8},
+            {"hour": 10, "minute": 20, "duration": 12},
+            {"hour": 12, "minute": 6, "duration": 15},
+            {"hour": 20, "minute": 38, "duration": 21}],
+
+"Wednesday": [{"hour": 6, "minute": 56, "duration": 10},
+              {"hour": 16, "minute": 30, "duration": 15}],
+
+"Thursday": [{"hour": 6, "minute": 30, "duration": 8},
+             {"hour": 8, "minute": 20, "duration": 12},
+             {"hour": 12, "minute": 20, "duration": 15},
+             {"hour": 14, "minute": 18, "duration": 22},
+             {"hour": 18, "minute": 14, "duration": 23}],
+
+"Friday": [{"hour": 6, "minute": 20, "duration": 6},
+           {"hour": 10, "minute": 10, "duration": 9},
+           {"hour": 12, "minute": 35, "duration": 16}, 
+           {"hour": 20, "minute": 55, "duration": 23}],
+
+"Saturday": [{"hour": 6, "minute": 44, "duration": 11},
+             {"hour": 12, "minute": 3, "duration": 12},
+             {"hour": 18, "minute": 10, "duraion": 18}],
+
+"Sunday": [{"hour": 8, "minute": 58, "duration": 7},
+           {"hour": 16, "minute": 0, "duration": 360}]
+}

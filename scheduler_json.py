@@ -1,8 +1,16 @@
 #!/usr/bin/python
 
-#================================================================================================
-#This library is is a simple script that is using an external  scheduler plan in from a dictionary in custom.py where you can define your own scheduler for each day. Library checks what day is today and if there is a scheduler for this day it will check if there is anything set up for curent time and upon match it will use a duration to determinate when task should end and run it for set duration.
-#================================================================================================
+'''
+#==============================================================
+#This library is is a simple script that is using an external  
+scheduler plan in from a dictionary in custom.py where you can 
+define your own scheduler for each day. Library checks what day 
+is today and if there is a scheduler for this day it will check 
+if there is anything set up for curent time and upon match it 
+will use a duration to determinate when task should end and run 
+it for set duration.
+#==============================================================
+'''
 
 #Importing stuff including scheduler-custom which is a file where you define your own scheduler
 
@@ -26,7 +34,9 @@ while True:
             start = timedelta(hours=event['hour'], minutes=event['minute'])
             finish = start + timedelta(minutes=event['duration'])
             if (start < curently < finish):
-                print("Running scheduler : " + str(event['hour']) + ":" + str(event['minute']) + ".00" + ". This will finish at " + str(finish))
+                print("Running scheduler : " + str(event['hour']) + ":" \
+		+ str(event['minute']) + ".00" + ". This will finish at " \
+		+ str(finish))
                 RUNNING=True
                 break
     if RUNNING==True:

@@ -2,13 +2,11 @@
 
 '''
 #==============================================================
-#This library is is a simple script that is using an external  
-scheduler plan in from a dictionary in custom.py where you can 
-define your own scheduler for each day. Library checks what day 
-is today and if there is a scheduler for this day it will check 
-if there is anything set up for curent time and upon match it 
-will use a duration to determinate when task should end and run 
-it for set duration.
+#This library is is a simple script that is using an external scheduler plan in from 
+a dictionary in custom.py where you can define your own scheduler for each day.Library 
+checks what day is today and if there is a scheduler for this day it will check if there 
+is anything set up for curent time and upon match it will use a duration to determinate 
+when task should end and run it for set duration.
 #==============================================================
 '''
 
@@ -38,7 +36,8 @@ while True:
 		+ str(event['minute']) + ".00" + ". This will finish at " \
 		+ str(finish))
                 RUNNING=True
-                break
+                breakA
+
     if RUNNING==True:
         if curently >= finish:
             RUNNING=False
@@ -48,4 +47,3 @@ while True:
         if curently < finish:
             STATE = rhf.run_heating(True)
     time.sleep(3)        
-

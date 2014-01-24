@@ -36,7 +36,7 @@ while True:
 		+ str(event['minute']) + ".00" + ". This will finish at " \
 		+ str(finish))
                 RUNNING=True
-                breakA
+                break
 
     if RUNNING==True:
         if curently >= finish:
